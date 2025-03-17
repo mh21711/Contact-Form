@@ -1,42 +1,276 @@
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --green-: hsl(169, 82%, 27%);
+  --ligtergreen-: rgba(224,241,231,255);
+  --red-: hsl(0, 66%, 54%);
+  --white-: hsl(0, 0%, 100%);
+  --grey-: hsl(186, 15%, 59%);
+  --darkergrey-: hsl(187, 24%, 22%);
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+body {
+  background-color: var(--ligtergreen-);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Karla';
+  position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+.container {
+  background-color: var(--white-);
+  padding: 30px;
+  border-radius: 20px;
+  width: 600px;
+}
+
+h1 {
+  margin-bottom: 30px;
+}
+
+.star {
+  font-size: 15px;
+  color: var(--green-);
+  margin-left: 5px;
+}
+
+/* Change the background color of autofilled inputs */
+input:-webkit-autofill {
+  background-color: white !important; /* Use your desired background color */
+  color: black !important; /* Optional: Change text color if needed */
+}
+
+/* Optional: Add a transition for smoother changes */
+input:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s; /* Delay the transition to make it permanent */
+}
+
+.name,
+.email,
+.radio,
+.message {
+  margin-bottom: 20px;
+}
+
+.name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.first_name,
+.last_name {
+  display: flex;
+  flex-direction: column;
+  width: 48%;
+}
+
+.email,
+.radio,
+.message {
+  display: flex;
+  flex-direction: column;
+}
+
+label,
+.p {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.radio > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.radio_1,
+.radio_2 {
+  border-radius: 10px;
+  padding: 10px 20px;
+  border: 1px solid var(--grey-);
+  width: 48%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.radio input {
+  width: 22px;
+  height: 20px;
+}
+
+.radio input:checked {
+  display: none;
+}
+
+.radio input + div {
+  display: none;
+  background-image: url("../public/images/icon-radio-selected.svg");
+  background-size: cover;
+  width: 22px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.radio input:checked + div {
+  display: block;
+}
+
+.radio label,
+.checkbox label {
+  margin-left: 10px;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+input {
+  border-radius: 10px;
+  padding: 10px 20px;
+  outline: none;
+  border: 1px solid var(--grey-);
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--green-);
+  outline: none;
+}
+
+input:hover,
+textarea:hover {
+  border-color: var(--green-);
+}
+
+.active {
+  background-color: var(--ligtergreen-);
+  border-color: var(--green-);
+}
+
+.message textarea {
+  height: 100px !important;
+  resize: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin: 30px 0 15px;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkbox .checked {
+  width: 25px;
+  height: 25px;
+  background-image: url(../public/images/icon-checkbox-check.svg);
+  background-size: cover;
+}
+
+.checkbox .unchecked {
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+
+.button {
+  background-color: var(--green-);
+  border: none;
+  border-radius: 10px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  color: var(--white-);
+  padding: 15px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: .5s;
+}
+
+.button:hover {
+  background-color: #063F36;
+}
+
+.errormessage {
+  color: var(--red-);
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.success {
+  position: absolute;
+  background-color: var(--darkergrey-);
+  left: 50%;
+  transform: translateX(-50%);
+  top: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  color: var(--white-);
+}
+
+.success h3 {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.success h3 img {
+  margin-right: 10px;
+}
+
+.success p {
+  color: var(--grey-);
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 50px 20px;
+    height: auto;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .name {
+    flex-direction: column;
+  }
+
+  .first_name,
+  .last_name {
+    width: 100%;
+  }
+
+  .first_name {
+    margin-bottom: 20px;
+  }
+
+  .radio > div {
+    flex-direction: column;
+  }
+
+  .radio_1 {
+    margin-bottom: 20px;
+  }
+
+  .radio_1,
+  .radio_2 {
+    width: 100%;
+  }
+
+  .success {
+    width: 80%;
   }
 }

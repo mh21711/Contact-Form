@@ -205,7 +205,7 @@ function Home() {
           />
           Message Sent!
         </h3>
-        <p>Thanks For Completing the Form. we'll be in touch soon!</p>
+        <p>Thanks For Completing the Form. we&apos;ll be in touch soon!</p>
       </div>
     </div>
   );

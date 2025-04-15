@@ -16,8 +16,9 @@
 
 body {
   background-color: var(--ligtergreen-);
-  width: 100vw;
-  height: 100vh;
+  width: 98vw;
+  min-height: 100vh;
+  padding: 50px, 0;
   display: flex;
   justify-content: center;
   align-items: center;
